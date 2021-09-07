@@ -21,7 +21,7 @@ spec:
     command: ["cat"]
     env:
     - name: PROJECT_NAME
-      value: MBTI-Client-Dev
+      value: mbti-client-dev
     volumeMounts: # DinD(Docker-in-Docker)를 위한 볼륨 마운트
     - mountPath: /var/run/docker.sock
       name: docker-socket
