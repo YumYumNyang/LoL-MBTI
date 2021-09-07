@@ -14,14 +14,14 @@ spec:
     command: ["cat"]
     env:
     - name: PROJECT_URL
-      value: <GITHUB_URL>
+      value: https://github.com/Running-ShrimpBurger/LoL-MBTI.git
   - name: docker # docker container 실행(dockerfile을 기반으로 이미지 생성)
     image: docker
     tty: true 
     command: ["cat"]
     env:
     - name: PROJECT_NAME
-      value: <APP_NAME>
+      value: LoL-MBTI/Client
     volumeMounts: # DinD(Docker-in-Docker)를 위한 볼륨 마운트
     - mountPath: /var/run/docker.sock
       name: docker-socket
@@ -57,7 +57,7 @@ spec:
           container('docker') {
             // get dockerhub credentials
             withCredentials([[$class: 'UsernamePasswordMultiBinding',
-              credentialsId: 'dockerhub',
+              credentialsId: 'ejb0329-dockerhub',
               usernameVariable: 'DOCKERHUB_USER',
               passwordVariable: 'DOCKERHUB_PASSWORD']]) {
               // image packaging and upload
