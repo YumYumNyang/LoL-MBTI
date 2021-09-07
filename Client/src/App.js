@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is the third version of Ricky React!
+          This is YUMYUM's react!
         </p>
         <a
           className="App-link"
