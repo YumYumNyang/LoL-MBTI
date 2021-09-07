@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is YUMYUM's react!
+          This is YUMYUM's react!2
         </p>
         <a
           className="App-link"
