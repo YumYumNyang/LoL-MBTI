@@ -21,7 +21,7 @@ spec:
     command: ["cat"]
     env:
     - name: PROJECT_NAME
-      value: LoL-MBTI/Client
+      value: MBTI-Client-Dev
     volumeMounts: # DinD(Docker-in-Docker)를 위한 볼륨 마운트
     - mountPath: /var/run/docker.sock
       name: docker-socket
@@ -46,7 +46,7 @@ spec:
           container('docker') {
             // build docker image
             sh """
-            cd \$PROJECT_NAME
+            cd LoL-MBTI/\$PROJECT_NAME
             docker build -t \$PROJECT_NAME .
             """
           }
