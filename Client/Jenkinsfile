@@ -46,7 +46,7 @@ spec:
           container('docker') {
             // build docker image
             sh """
-            cd LoL-MBTI/\$PROJECT_NAME
+            cd LoL-MBTI/Client
             docker build -t \$PROJECT_NAME .
             """
           }
