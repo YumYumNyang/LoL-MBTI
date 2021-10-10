@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Index from '../components/Index';
 import LineButton from '../components/LineButton';
 
-const Question = ({ img, question, firstAns, secondAns }) => {
+const Question = ({ number, img, question, firstAns, secondAns }) => {
   return (
     <Container>
-      <Title>{question}</Title>
+      <Index number={number} />
+      <Title>?/</Title>
     </Container>
   );
 };

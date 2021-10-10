@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LineButton = ({ src, title }) => {
+const LineButton = ({ onClick, src, title }) => {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <Circle>
         <img src={src} alt={title} />
       </Circle>

@@ -3,21 +3,26 @@ import styled from 'styled-components';
 import LineButton from '../components/LineButton';
 
 const lineMapper = [
-  { title: '상단(탑)', src: 'top.png' },
-  { title: '중단(미드)', src: 'mid.png' },
-  { title: '하단(봇)', src: 'bot.png' },
-  { title: '정글', src: 'jgl.png' },
-  { title: '서포터', src: 'spt.png' },
+  { type: 'top', title: '상단(탑)', src: 'top.png' },
+  { type: 'mid', title: '중단(미드)', src: 'mid.png' },
+  { type: 'bot', title: '하단(봇)', src: 'bot.png' },
+  { type: 'jgl', title: '정글', src: 'jgl.png' },
+  { type: 'spt', title: '서포터', src: 'spt.png' },
 ];
 
-const LineSelection = () => {
+const LineSelection = ({ line, setLine }) => {
   return (
     <Container>
       <Img src="line.png"></Img>
       <Title>주로 가는 라인이 어디인가요?</Title>
       <LineContainer>
         {lineMapper.map((line) => (
-          <LineButton title={line.title} src={line.src}></LineButton>
+          <LineButton
+            key={line.type}
+            onClick={() => setLine(line.type)}
+            title={line.title}
+            src={line.src}
+          ></LineButton>
         ))}
       </LineContainer>
     </Container>
