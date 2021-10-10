@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const BlueButton = ({ onClick, text }) => {
   return (
     <ButtonBorder>
+      <Border />
       <Button onClick={onClick}>{text}</Button>
     </ButtonBorder>
   );
@@ -12,11 +13,40 @@ const BlueButton = ({ onClick, text }) => {
 export default BlueButton;
 const ButtonBorder = styled.div`
   display: flex;
-  padding: 5px;
-  width: 256px;
+  margin: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+`;
+const Border = styled.div`
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #ffecc9;
-  margin-bottom: 14px;
-  clip-path: polygon(0% 0%, 200% 0%, 0% 200%);
+  transition: all 0.3s;
+  &:hover,
+  &:active {
+    animation-name: border;
+    animation-duration: 1s;
+    top: 0px;
+    left: 0px;
+  }
+  @keyframes border {
+    0% {
+      top: -7px;
+      left: 7px;
+    }
+    30% {
+      top: -9px;
+      left: 9px;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+    }
+  }
 `;
 const Button = styled.div`
   cursor: pointer;

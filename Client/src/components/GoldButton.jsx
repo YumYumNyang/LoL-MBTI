@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const GoldButton = ({ onClick, text }) => {
   return (
     <ButtonBorder>
+      <Border />
       <Button onClick={onClick}>{text}</Button>
     </ButtonBorder>
   );
@@ -12,13 +13,42 @@ const GoldButton = ({ onClick, text }) => {
 export default GoldButton;
 const ButtonBorder = styled.div`
   display: flex;
-  padding: 5px;
-  width: 256px;
-  border: 1px solid #ffecc9;
+  width: 100%;
   margin-bottom: 14px;
-  transition: clip-path 1.5s;
+  position: relative;
+  /* transition: clip-path 1.5s;
   &:hover {
     clip-path: polygon(0 24px, 24px 0, 100% 0, 100% 35px, 232px 100%, 0 100%);
+  } */
+`;
+const Border = styled.div`
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ffecc9;
+  transition: all 0.3s;
+  &:hover,
+  &:active {
+    animation-name: border;
+    animation-duration: 1s;
+    top: 0px;
+    left: 0px;
+  }
+  @keyframes border {
+    0% {
+      top: -7px;
+      left: 7px;
+    }
+    30% {
+      top: -9px;
+      left: 9px;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+    }
   }
 `;
 const Button = styled.div`
