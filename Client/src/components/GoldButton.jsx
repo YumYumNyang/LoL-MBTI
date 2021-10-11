@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GoldButton = ({ onClick, text }) => {
+const GoldButton = ({ isChecked, onClick, text }) => {
   return (
-    <ButtonBorder>
-      <Border />
-      <Button onClick={onClick}>{text}</Button>
+    <ButtonBorder onClick={() => onClick()}>
+      <Border isChecked={isChecked} />
+      <Button>{text}</Button>
     </ButtonBorder>
   );
 };
@@ -13,7 +13,8 @@ const GoldButton = ({ onClick, text }) => {
 export default GoldButton;
 const ButtonBorder = styled.div`
   display: flex;
-  width: 100%;
+  width: 80%;
+  cursor: pointer;
   margin-bottom: 14px;
   position: relative;
   /* transition: clip-path 1.5s;
@@ -29,6 +30,10 @@ const Border = styled.div`
   height: 100%;
   border: 1px solid #ffecc9;
   transition: all 0.3s;
+  ${(props) =>
+    props.isChecked &&
+    `top: 0px;
+    left: 0px;`}
   &:hover,
   &:active {
     animation-name: border;
@@ -52,15 +57,16 @@ const Border = styled.div`
   }
 `;
 const Button = styled.div`
-  cursor: pointer;
+
   width: 100%;
   color: #ffffff;
   font-weight: bold;
   font-size: 18px;
-  padding: 15px 0;
+  padding: 15px;
   display: flex;
   font-weight: bold;
   align-items: center;
+  text-align: center;
   justify-content: center;
   background: #d0a85c;
   /* animation-name: poly;

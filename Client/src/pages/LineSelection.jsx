@@ -19,7 +19,10 @@ const LineSelection = ({ line, setLine }) => {
         {lineMapper.map((line) => (
           <LineButton
             key={line.type}
-            onClick={() => setLine(line.type)}
+            onClick={() => {
+              setLine(line.type);
+              window.sessionStorage.setItem('line', JSON.stringify(line.type));
+            }}
             title={line.title}
             src={line.src}
           ></LineButton>

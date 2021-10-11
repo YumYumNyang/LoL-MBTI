@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BlueButton = ({ onClick, text }) => {
+const BlueButton = ({ isChecked, onClick, text }) => {
   return (
-    <ButtonBorder>
-      <Border />
-      <Button onClick={onClick}>{text}</Button>
+    <ButtonBorder onClick={() => onClick()}>
+      <Border isChecked={isChecked} />
+      <Button>{text}</Button>
     </ButtonBorder>
   );
 };
 
 export default BlueButton;
 const ButtonBorder = styled.div`
+  cursor: pointer;
   display: flex;
   margin: 10px;
-  width: 100%;
+  width: 80%;
   margin-bottom: 20px;
   position: relative;
 `;
@@ -26,6 +27,10 @@ const Border = styled.div`
   height: 100%;
   border: 1px solid #ffecc9;
   transition: all 0.3s;
+  ${(props) =>
+    props.isChecked &&
+    `top: 0px;
+    left: 0px;`}
   &:hover,
   &:active {
     animation-name: border;
@@ -49,12 +54,13 @@ const Border = styled.div`
   }
 `;
 const Button = styled.div`
-  cursor: pointer;
+ 
   width: 100%;
   color: #ffffff;
+  text-align: center;
   font-weight: bold;
   font-size: 18px;
-  padding: 15px 0;
+  padding: 15px;
   display: flex;
   font-weight: bold;
   align-items: center;

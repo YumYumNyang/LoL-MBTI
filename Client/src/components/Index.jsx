@@ -4,11 +4,11 @@ const circles = [];
 for (let i = 0; i < 12; i++) {
   circles.push(i);
 }
-const Index = ({ number }) => {
+const Index = ({ index }) => {
   return (
     <Container>
       {circles.map((circle) => (
-        <Circle key={circle} isDone={circle <= number} />
+        <Circle key={circle} isDone={circle <= index} />
       ))}
       <Line />
     </Container>

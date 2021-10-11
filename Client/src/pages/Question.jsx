@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import BlueButton from '../components/BlueButton';
+import GoldButton from '../components/GoldButton';
 import Index from '../components/Index';
-import LineButton from '../components/LineButton';
+import { QuestionMapper } from '../utils/QuestionMapper';
 
-const Question = ({ number, img, question, firstAns, secondAns }) => {
+const Question = ({ index, setIndex }) => {
+  const question = QuestionMapper[index];
+  const sessionCheck = window.sessionStorage.getItem(index);
+  
   return (
     <Container>
-      <Index number={number} />
-      <Title>?/</Title>
+      
+      <Index index={index} />
+      <Title>{question.question}</Title>
+      <BlueButton
+        isChecked={sessionCheck === 1}
+        text={question.firstAnswer}
+        onClick={() => {
+          setIndex(index + 1);
+          window.sessionStorage.setItem(JSON.stringify(index), '1');
+          window.sessionStorage.setItem('index', JSON.stringify(index + 1));
+        }}
+      />
+      <GoldButton
+        isChecked={sessionCheck === 2}
+        text={question.secondAnswer}
+        onClick={() => {
+          setIndex(index + 1);
+          window.sessionStorage.setItem(JSON.stringify(index), '2');
+          window.sessionStorage.setItem('index', JSON.stringify(index + 1));
+        }}
+      />
     </Container>
   );
 };
