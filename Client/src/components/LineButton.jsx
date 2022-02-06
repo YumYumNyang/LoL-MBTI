@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 
 const LineButton = ({ onClick, src, title }) => {
   return (
@@ -19,8 +19,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   span {
-    font-family: Source Han Sans KR;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 26px;

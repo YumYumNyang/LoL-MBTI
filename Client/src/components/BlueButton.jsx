@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 
-const BlueButton = ({ isChecked, onClick, text }) => {
+const BlueButton = ({ isChecked, text, onClick }) => {
   return (
-    <ButtonBorder onClick={() => onClick()}>
+    <ButtonBorder onClick={onClick}>
       <Border isChecked={isChecked} />
       <Button>{text}</Button>
     </ButtonBorder>
@@ -34,7 +34,7 @@ const Border = styled.div`
   &:hover,
   &:active {
     animation-name: border;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     top: 0px;
     left: 0px;
   }
@@ -54,7 +54,6 @@ const Border = styled.div`
   }
 `;
 const Button = styled.div`
- 
   width: 100%;
   color: #ffffff;
   text-align: center;

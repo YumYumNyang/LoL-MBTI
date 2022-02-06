@@ -1,10 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 
-const ImageCircle = () => {
+
+
+const ImageCircle = ({ src }) => {
+  console.log(src);
   return (
     <Circle>
-      <img src="Yumi.jpeg" alt="yumi" />
+      <img src={src ? src :  "Yumi.jpeg"} alt={src} />
     </Circle>
   );
 };

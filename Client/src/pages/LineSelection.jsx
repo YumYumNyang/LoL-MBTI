@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 import LineButton from '../components/LineButton';
 
 const lineMapper = [
-  { type: 'top', title: '상단(탑)', src: 'top.png' },
-  { type: 'mid', title: '중단(미드)', src: 'mid.png' },
-  { type: 'bot', title: '하단(봇)', src: 'bot.png' },
-  { type: 'jgl', title: '정글', src: 'jgl.png' },
-  { type: 'spt', title: '서포터', src: 'spt.png' },
+  { type: "TOP", title: "상단(탑)", src: "top.png" },
+  { type: "MID", title: "중단(미드)", src: "mid.png" },
+  { type: "BOT", title: "하단(봇)", src: "bot.png" },
+  { type: "JGL", title: "정글", src: "jgl.png" },
+  { type: "SPT", title: "서포터", src: "spt.png" },
 ];
 
 const LineSelection = ({ line, setLine }) => {
@@ -21,7 +21,7 @@ const LineSelection = ({ line, setLine }) => {
             key={line.type}
             onClick={() => {
               setLine(line.type);
-              window.sessionStorage.setItem('line', JSON.stringify(line.type));
+              window.sessionStorage.setItem("line", line.type);
             }}
             title={line.title}
             src={line.src}
@@ -38,9 +38,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 411px;
-  min-width: 360px;
-  height: 100%;
+
   margin: 0 auto;
 `;
 const Img = styled.img`

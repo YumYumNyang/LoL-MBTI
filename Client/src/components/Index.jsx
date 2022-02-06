@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 const circles = [];
 for (let i = 0; i < 12; i++) {
   circles.push(i);

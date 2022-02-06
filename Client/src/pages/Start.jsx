@@ -1,12 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import BlueButton from '../components/BlueButton';
-import GoldButton from '../components/GoldButton';
-import GoldCircle from '../components/GoldCircle';
-import ImageCircle from '../components/ImageCircle';
-import MovingCircle from '../components/MovingCircle';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "@emotion/styled";
+import BlueButton from "../components/BlueButton";
+import GoldButton from "../components/GoldButton";
+import GoldCircle from "../components/GoldCircle";
+import ImageCircle from "../components/ImageCircle";
+import MovingCircle from "../components/MovingCircle";
 
 const Start = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <SubTitle>
@@ -22,7 +24,10 @@ const Start = () => {
         League of Legends <br />
         MBTI 테스트
       </Title>
-      <BlueButton text="지금 테스트 시작하기" />
+      <BlueButton
+        onClick={() => navigate("test")}
+        text="지금 테스트 시작하기"
+      />
       <GoldButton text="모든 챔피언 구경하기" />
     </Container>
   );
@@ -34,16 +39,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 411px;
-  min-width: 360px;
   height: 100%;
   margin: 0 auto;
 `;
 
 const SubTitle = styled.div`
   margin-top: 30px;
-  font-family: Source Han Sans KR;
-  font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
@@ -61,8 +62,6 @@ const ImageWrapper = styled.div`
 
 const Title = styled.div`
   margin: 40px 0;
-  font-family: Source Han Sans KR;
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 35px;

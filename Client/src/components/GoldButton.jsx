@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 
 const GoldButton = ({ isChecked, onClick, text }) => {
   return (
-    <ButtonBorder onClick={() => onClick()}>
+    <ButtonBorder onClick={onClick}>
       <Border isChecked={isChecked} />
       <Button>{text}</Button>
     </ButtonBorder>
