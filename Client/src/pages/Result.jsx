@@ -134,7 +134,7 @@ const Result = () => {
       <GoldButton
         onClick={() => {
           window.sessionStorage.clear();
-          navigate("/start");
+          navigate("/all");
         }}
         text="다른 챔피언 구경하기"
       />

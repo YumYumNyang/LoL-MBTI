@@ -25,10 +25,13 @@ const Start = () => {
         MBTI 테스트
       </Title>
       <BlueButton
-        onClick={() => navigate("test")}
+        onClick={() => navigate("/test")}
         text="지금 테스트 시작하기"
       />
-      <GoldButton text="모든 챔피언 구경하기" />
+      <GoldButton
+        onClick={() => navigate("/all")}
+        text="모든 챔피언 구경하기"
+      />
     </Container>
   );
 };
