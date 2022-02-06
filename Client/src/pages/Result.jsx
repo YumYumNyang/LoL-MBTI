@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import styled from "@emotion/styled";
 import { ResultMapper } from "../utils/ResultMapper";
 import GoldCircle from "../components/GoldCircle";
@@ -66,6 +67,39 @@ const Result = () => {
   
   return (
     <Container>
+      <Helmet>
+        <title>나와 비슷한 성격의 리그오브레전드 챔피언은...?</title>
+        <meta
+          name="description"
+          content={answer.champ}
+          data-react-helmet="true"
+        />
+        <meta
+          name="og:description"
+          content={answer.champ}
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:title"
+          content={"나와 비슷한 성격의 리그오브레전드 챔피언은...?"}
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:image"
+          content={`http://8363-222-97-240-97.ngrok.io/result/${answer.eng}.jpg`}
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:site_name"
+          content="롤 MBTI 테스트"
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:description"
+          content={answer.champ}
+          data-react-helmet="true"
+        />
+      </Helmet>
       <SubTitle>
         나와 비슷한 성격의
         <br /> 리그오브레전드 챔피언은..?
