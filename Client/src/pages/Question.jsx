@@ -23,7 +23,7 @@ const Question = ({ index, setIndex }) => {
 
   useEffect(() => {
     if (index >= 12) findResult();
-  }, []);
+  }, [index]);
 
   return (
     index < 12 && (

@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 const BlueButton = ({ isChecked, text, onClick }) => {
   return (
     <ButtonBorder onClick={onClick}>
-      <Border isChecked={isChecked} />
-      <Button>{text}</Button>
+      <Border />
+      <Button isChecked={isChecked}>{text}</Button>
     </ButtonBorder>
   );
 };
@@ -26,11 +26,6 @@ const Border = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid #ffecc9;
-  transition: all 0.3s;
-  ${(props) =>
-    props.isChecked &&
-    `top: 0px;
-    left: 0px;`}
   &:hover,
   &:active {
     animation-name: border;
@@ -64,6 +59,8 @@ const Button = styled.div`
   font-weight: bold;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s;
+  ${(props) => props.isChecked && `background-color: #00879c;`}
   background-color: rgba(9, 198, 227, 1);
   /* animation-name: poly;
   @keyframes poly {

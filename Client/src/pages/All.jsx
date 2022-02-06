@@ -5,7 +5,9 @@ import ChampButton from "../components/ChampButton.jsx";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "../components/BlueButton";
 const All = () => {
-  const sets = new Set(ResultMapper.map((result) => result.champ));
+  const sets = new Set(
+    ResultMapper.sort((a, b) => a.champ - b.champ).map((result) => result.champ)
+  );
   const navigate = useNavigate();
   return (
     <Container>
