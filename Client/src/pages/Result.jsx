@@ -11,6 +11,37 @@ import BlueButton from "../components/BlueButton";
 import BlueInlineButton from "../components/BlueInlineButton";
 import YellowInlineButton from "../components/YellowInlineButton";
 
+const { Kakao } = window;
+const onKakaoShare = (answer) => {
+  Kakao.Link.sendDefault({
+    objectType: "feed",
+    content: {
+      title: `나와 비슷한 성격의 리그오브레전드 챔피언은...?`,
+      imageUrl: `http://localhost:3000/champ/${answer.name}.jpg`,
+      description: `${answer.champ}!`,
+      link: {
+        mobileWebUrl: "http://localhost:3000/",
+        webUrl: "http://localhost:3000/",
+      },
+    },
+    buttons: [
+      {
+        title: "자세히 보기",
+        link: {
+          mobileWebUrl: `${window.location.href}`,
+          webUrl: `${window.location.href}`,
+        },
+      },
+      {
+        title: "테스트 하러가기",
+        link: {
+          mobileWebUrl: "http://localhost:3000/",
+          webUrl: "http://localhost:3000/",
+        },
+      },
+    ],
+  });
+};
 const Result = () => {
   const [answer, setAnswer] = useState({});
   const [desc, setDesc] = useState({title: '', desc: ''});
@@ -31,8 +62,9 @@ const Result = () => {
     document.body.removeChild(el);
     alert('링크 복사됨');
   }
+
   
-  return  (
+  return (
     <Container>
       <SubTitle>
         나와 비슷한 성격의
@@ -54,7 +86,10 @@ const Result = () => {
         <br /> 친구에게 결과를 공유해보세요!
       </Share>
       <BlueInlineButton onClick={onCopy} text="링크 공유하기" />
-      <YellowInlineButton text="카카오톡 공유하기" />
+      <YellowInlineButton
+        onClick={() => onKakaoShare(answer)}
+        text="카카오톡 공유하기"
+      />
       <BlueButton
         onClick={() => {
           window.sessionStorage.clear();

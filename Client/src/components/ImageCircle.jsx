@@ -4,10 +4,9 @@ import styled from "@emotion/styled";
 
 
 const ImageCircle = ({ src }) => {
-  console.log(src);
   return (
     <Circle>
-      <img src={src ? src :  "Yumi.jpeg"} alt={src} />
+      <img src={src ? src : "Yumi.jpeg"} alt={src} />
     </Circle>
   );
 };

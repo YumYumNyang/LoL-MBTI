@@ -20,6 +20,7 @@ const Question = ({ index, setIndex }) => {
     let mbti = MBTIMapper(ansArr);
     navigate(`/result/${mbti}-${line}`);
   }
+
   useEffect(() => {
     if (index >= 12) findResult();
   }, []);
