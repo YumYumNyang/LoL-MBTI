@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from "@emotion/styled";
-const circles = [];
-for (let i = 0; i < 12; i++) {
-  circles.push(i);
-}
-const Index = ({ index }) => {
+const circles = Array.from(new Array(12), (_, index) => index);
+
+const Index = ({ index, setIndex }) => {
   return (
     <Container>
-      {circles.map((circle) => (
-        <Circle key={circle} isDone={circle <= index} />
+      {circles.map((circle, i) => (
+        <Circle
+          onClick={() =>  {
+            if(circle <= index)  setIndex(i);
+          }}
+          key={circle}
+          isDone={circle <= index}
+        />
       ))}
       <Line />
     </Container>

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 const GoldButton = ({ isChecked, onClick, text }) => {
   return (
     <ButtonBorder onClick={onClick}>
-      <Border />
+      <Border isChecked={isChecked} />
       <Button isChecked={isChecked}>{text}</Button>
     </ButtonBorder>
   );
@@ -37,6 +37,10 @@ const Border = styled.div`
     top: 0px;
     left: 0px;
   }
+  ${(props) =>
+    props.isChecked &&
+    `top: 0px;
+    left: 0px;`}
   @keyframes border {
     0% {
       top: -7px;
