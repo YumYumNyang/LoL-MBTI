@@ -29,18 +29,24 @@ const Question = ({ index, setIndex }) => {
   }
 
   const onNext = () => {
-    if (index === 11) findResult();
-    else setIndex(index + 1);
+    if (pick) {
+      if (index === 11) findResult();
+      else setIndex(index + 1);
+    }else{
+      alert('답변을 선택해주세요!');
+    }
+   
   };
   const onBack = () => {
-    if (index === 0) navigate(-1);
-    else setIndex(index - 1);
+    if (index === 0) {
+      navigate(-1);
+      window.sessionStorage.clear();
+    } else setIndex(index - 1);
   };
   
   useEffect(() => {
     if (index >= 12) findResult();
     setPick(sessionCheck);
-    console.log(index, pick, sessionCheck);
   }, [index]);
   
   return (
@@ -72,11 +78,12 @@ const Question = ({ index, setIndex }) => {
               }
             }}
           />
+          <Router>
+            <BackButton onBack={onBack} />
+            <NextButton onNext={onNext} />
+          </Router>
         </Content>
-        <Router>
-          <BackButton onBack={onBack}    />
-          <NextButton onNext={onNext} />
-        </Router>
+
         <Index index={index} setIndex={setIndex} />
       </Container>
     )

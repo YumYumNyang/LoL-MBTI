@@ -64,7 +64,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  margin: 40px 0;
+  margin: 30px 0;
   font-weight: bold;
   font-size: 24px;
   line-height: 35px;
