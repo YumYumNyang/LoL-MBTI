@@ -26,8 +26,9 @@ const Container = styled.div`
   width: 300px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin: 30px 0 ;
   position: relative;
+  
 `;
 
 const Circle = styled.div`
